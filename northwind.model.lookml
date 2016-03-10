@@ -4,6 +4,7 @@
 - include: "*.view.lookml"       # include all the views
 - include: "*.dashboard.lookml"  # include all the dashboards
 
+- explore: sql_runner_query
 - explore: alphabetical_list_of_products
   joins:
     - join: products
