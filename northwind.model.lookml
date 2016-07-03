@@ -15,6 +15,7 @@
 
 
 - explore: categories
+  cancel_grouping_fields: [categories.picture]
 
 - explore: category_sales_for_1997
 
