@@ -29,6 +29,17 @@
       END
       
 
+  - filter: rank_other_bucket
+    type: number
+
+  - dimension: rank_name_bucket
+    type: string
+    sql: |
+      CASE
+        WHEN {% condition rank_other_bucket %} ${rank} {% endcondition %} THEN 'other' 
+        ELSE ${rank_name}
+      END
+
   - dimension: rank
     type: number
     sql: ${TABLE}.rank
