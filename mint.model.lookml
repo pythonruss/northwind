@@ -1,4 +1,4 @@
-- connection: mint_etl
+- connection: mint
 
 - scoping: true                  # for backward compatibility
 - include: "*.view.lookml"       # include all the views
