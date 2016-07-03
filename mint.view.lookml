@@ -8,6 +8,12 @@
   - dimension: amount
     type: number
     value_format: '$#,##0.00'
+    
+  - dimension: amount_tier
+    type: tier
+    tiers: [0,5,10,25,50,75,100,500,1000]
+    sql: ${amount}
+    style: integer
 
   - dimension: net_amount
     type: number
@@ -20,12 +26,14 @@
       
 
   - dimension: category
+    label: Sub Category
     type: string
     sql: ${TABLE}.Category
 
   - dimension_group: date
+    label: Transaction
     type: time
-    timeframes: [time, date, week, month]
+    timeframes: [time, date, week, month, year]
     sql: ${TABLE}.Date
 
   - dimension: description
@@ -65,8 +73,15 @@
     sql: ${net_total_amount}
 
   - measure: count
+    label: Transaction Count
     type: count
-    drill_fields: [account_name]
+    drill_fields: detail*
+    
+  - measure: avg_spend_per_transaction
+    type: number
+    label: Average Spend Per Tansaction
+    sql: ${total_amount}*1.0 / nullif(${count},0)
+    value_format: '$#,##0.00'
 
 
   sets:

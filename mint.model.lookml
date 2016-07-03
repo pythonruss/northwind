@@ -7,6 +7,7 @@
 
 
 - explore: mint
+  view_label: Mint Transaction History
   joins:
     - join: category_facts
       type: left_outer

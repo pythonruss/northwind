@@ -21,6 +21,8 @@
   
   
   - dimension: rank_name
+    label: Ranked Sub Category
+    description: Gives a full list of the ranked subcategories
     type: string
     sql: |
       CASE 
@@ -31,8 +33,10 @@
 
   - filter: rank_other_bucket
     type: number
+    view_label: 
 
   - dimension: rank_name_bucket
+    label: Ranked Sub Category with Other Bucket
     type: string
     sql: |
       CASE
@@ -49,6 +53,7 @@
     sql: ${TABLE}.CATEGORY
 
   - dimension: total
+    hidden: true
     type: number
     sql: ${TABLE}.TOTAL
 
