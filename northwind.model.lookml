@@ -6,6 +6,13 @@
 
 
 - explore: mint
+  joins:
+    - join: category_facts
+      type: left_outer
+      relationship: many_to_one
+      sql_on: ${mint.category} = ${category_facts.category}
+      
+# - explore: category_facts
 
 # - explore: sql_runner_query
 # - explore: alphabetical_list_of_products
