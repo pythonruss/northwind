@@ -64,7 +64,7 @@
     
   - measure: net_total_amount
     type: sum
-    sql: ${amount}
+    sql: ${net_amount}
     value_format: '$#,##0.00'
     drill_fields: detail*
     
