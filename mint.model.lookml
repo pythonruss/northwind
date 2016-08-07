@@ -1,7 +1,6 @@
 - connection: mint
   persist_for: 24 hours
 
-- scoping: true                  # for backward compatibility
 - include: "*.view.lookml"       # include all the views
 - include: "*.dashboard.lookml"  # include all the dashboards
 
@@ -17,3 +16,7 @@
       type: left_outer
       relationship: many_to_one
       sql_on: ${mint.category} = ${mint_taxonomy.child}
+    - join: merchant_facts
+      type: left_outer
+      relationship: many_to_one
+      sql_on: ${mint.description} = ${merchant_facts.description}
