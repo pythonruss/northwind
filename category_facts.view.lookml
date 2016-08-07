@@ -12,6 +12,7 @@
        1=1
         AND {% condition mint.date_date %} m.[date] {% endcondition %}
         AND {% condition mint.transaction_type %} M.[Transaction Type] {% endcondition %}
+        AND {% condition mint.labels %} M.[Labels] {% endcondition %}
         AND {% condition mint.category %} M.CATEGORY {% endcondition %}
       GROUP BY
         M.CATEGORY
