@@ -41,7 +41,7 @@
     type: string
     sql: |
       CASE
-        WHEN {% condition rank_other_bucket %} ${rank} {% endcondition %} THEN 'other' 
+        WHEN {% condition rank_other_bucket %} ${rank} {% endcondition %} THEN 'Other' 
         ELSE ${rank_name}
       END
 
