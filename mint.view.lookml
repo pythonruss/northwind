@@ -1,7 +1,7 @@
 - view: mint
   derived_table:
     sql_trigger_value: select max(date) from dbo.mint
-    indexes: [pk]
+    indexes: [date, category, pk]
     sql: |
       SELECT 
         row_number() over (order by date) AS PK,

@@ -7,7 +7,7 @@
         m.category AS CATEGORY,
         sum(m.amount) AS TOTAL
       FROM 
-        dbo.mint m
+        ${mint.SQL_TABLE_NAME} m
       WHERE
        1=1
         AND {% condition mint.date_date %} m.[date] {% endcondition %}
