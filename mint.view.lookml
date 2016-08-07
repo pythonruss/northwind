@@ -3,7 +3,16 @@
 
   - dimension: account_name
     type: string
-    sql: ${TABLE}."Account Name"
+    sql: |
+      CASE
+        WHEN ${TABLE}."Account Name" = 'Platinum Card' THEN 'Amex Platinum'
+        WHEN ${TABLE}."Account Name" = 'Checking' THEN 'Wells Fargo Checking'
+        WHEN ${TABLE}."Account Name" = 'Credit Card' THEN 'Wells Fargo Credit'
+        WHEN ${TABLE}."Account Name" = 'CHASE CHECKING' THEN 'Chase Checking'
+        WHEN ${TABLE}."Account Name" = 'Starwood Preferred Guest' THEN 'Amex SPG Card'
+        WHEN ${TABLE}."Account Name" = 'CREDIT CARD' THEN 'Chase Credit'
+        ELSE ${TABLE}."Account Name"
+      END
 
   - dimension: amount
     type: number
